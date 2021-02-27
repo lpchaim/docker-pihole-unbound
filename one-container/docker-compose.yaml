@@ -8,7 +8,7 @@ services:
     hostname: pihole
     domainname: pihole.local
     ports:
-      - 443/tcp
+      # - 443/tcp
       - 53/tcp
       - 53/udp
       - 80/tcp
@@ -26,7 +26,7 @@ services:
       DNSSEC: "true" # Enable DNSSEC
     network_mode: "host"
     volumes:
-      - etc_pihole-unbound:/etc/pihole:rw
-      - etc_pihole_dnsmasq-unbound:/etc/dnsmasq.d:rw
+      - /home/pi/docker/data/docker-compose/docker-pihole-unbound/etc/pihole:/etc/pihole:rw
+      - /home/pi/docker/data/docker-compose/docker-pihole-unbound/etc/dnsmasq.d:/etc/dnsmasq.d:rw
     restart: unless-stopped
 
